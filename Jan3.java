@@ -27,39 +27,25 @@ class Jan3 {
 class Solution {
     public int smallestSubstring(String S) {
         // Code here
-         // Set a flag to check if an answer exists
-        boolean flag = false;
-        
-        // Initialize variables to keep track of the last positions
-        int lZero = -1, lOne = -1, lTwo = -1;
-        
-        // Initialize the answer length to be the length of the input string
         int res = S.length();
-        
-        // Iterate through each character in the input string
-        for (int i = 0; i < res; i++) {
-            // Update the last positions based on the current character
-            if (S.charAt(i) == '0') {
-                lZero = i;
-            } else if (S.charAt(i) == '1') {
-                lOne = i;
-            } else {
-                lTwo = i;
+        boolean flag = false;
+        int charZero =-1,charOne =-1,charTwo=-1;
+        for(int i=0;i<S.length();i++){
+            if(S.charAt(i)=='0'){
+                charZero = i;
+            }else if(S.charAt(i)=='1'){
+                charOne = i;
+            }else{
+                charTwo = i;
             }
-            // Check if all three positions have been updated
-            if (lZero != -1 && lOne != -1 && lTwo != -1) {
-                // Set the flag to indicate that an answer exists
+            if(charZero!=-1 && charOne !=-1 && charTwo!=-1){
                 flag = true;
-                
-                // Calculate the length of the substring and update the answer length
-                res = Math.min(res,1 + i - Math.min(lZero, Math.min(lOne, lTwo)));
+                res = Math.min(res,1+i - (Math.min(charZero,Math.min(charOne,charTwo))));
             }
         }
-        
-        // Check if an answer exists and return the final answer
-        if (flag) {
+        if(flag){
             return res;
         }
         return -1;
     }
-};
+}
