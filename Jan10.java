@@ -12,7 +12,7 @@ import java.util.*;
 // } Driver Code Ends
 //User function Template for Java
 
-class Jan10{
+class Solution{
     int longSubarrWthSumDivByK(int a[], int n, int k)
     {
         // Complete the function
